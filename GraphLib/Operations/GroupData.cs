@@ -58,7 +58,10 @@ namespace GraphLib.Operations
 				requestConfiguration.QueryParameters.Top = 10;
 				requestConfiguration.QueryParameters.Filter = "securityEnabled eq true";
 				requestConfiguration.QueryParameters.Select = new string[] { "id", "displayName", "securityIdentifier", "securityEnabled", "mailEnabled", "mail", "description" };
-				//requestConfiguration.QueryParameters.Orderby = new string[] { "displayName" };
+				requestConfiguration.QueryParameters.Orderby = new string[] { "displayName" };
+				//The next two settings are required for advanced queries, because filter and orderby in the same request are considered advanced.
+				requestConfiguration.QueryParameters.Count = true;
+				requestConfiguration.Headers.Add("ConsistencyLevel", "eventual");
 			});
 			if (response != null)
 			{
@@ -82,7 +85,10 @@ namespace GraphLib.Operations
 				requestConfiguration.QueryParameters.Top = 10;
 				requestConfiguration.QueryParameters.Filter = "mailEnabled eq true";
 				requestConfiguration.QueryParameters.Select = new string[] { "id", "displayName", "securityIdentifier", "securityEnabled", "mailEnabled", "mail", "description" };
-				//requestConfiguration.QueryParameters.Orderby = new string[] { "displayName" };
+				requestConfiguration.QueryParameters.Orderby = new string[] { "displayName" };
+				//The next two settings are required for advanced queries, because filter and orderby in the same request are considered advanced.
+				requestConfiguration.QueryParameters.Count = true;
+				requestConfiguration.Headers.Add("ConsistencyLevel", "eventual");
 			});
 			if (response != null)
 			{
