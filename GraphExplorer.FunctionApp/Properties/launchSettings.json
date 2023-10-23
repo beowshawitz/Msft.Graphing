@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GraphExplorer.FunctionApp": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7070",
+      "launchBrowser": false
+    }
+  }
+}
