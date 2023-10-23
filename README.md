@@ -1,20 +1,16 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+I had a use case and need for some more practice, where I wanted to utilize some of the Microsoft Graph functionality to look up user and group information within Microsoft Entra ID. I started with a console application; and then I moved into a Azure Function App, where I could submit HTTP requests for the information. 
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+This is a .Net Core 6 application, which uses the Microsoft Authentication Library (MSAL) to acquire an authentication token. In order to run these two projects, you will need to have the following:
+- An Azure account with an active subscription
+- An application registration, configured with a client secret, like this [URL](https://learn.microsoft.com/en-us/graph/auth-register-app-v2)
+- Graph "Application permissions" granted for "User.Read.All & Group.Read.All" permissions like [Get access without a user](https://learn.microsoft.com/en-us/graph/auth-v2-service?tabs=http)
+- Enter the specific configuration for your Azure information in either the Visual Studio secrets or an appsettings file.
+  - "AzureCloudInstance": "AzurePublic"
+  - "Domain": ""
+  - "TenantId": ""
+  - "ClientId": ""
+  - "ClientSecret": ""
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Once the configuration is completed, you should be able to run the project and get the results to come back in either the console application or through Http Requests on the function.
